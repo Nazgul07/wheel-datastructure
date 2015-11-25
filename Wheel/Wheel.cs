@@ -4,9 +4,10 @@ using System.Collections.Generic;
 
 namespace Wheel
 {
-    public class Wheel<T> : IEnumerable
+	public class Wheel<T> : IEnumerable
 	{
-		public int Count {
+		public int Count
+		{
 			get
 			{
 				return _position + 1;
@@ -26,7 +27,7 @@ namespace Wheel
 		{
 			_items = new T[initialSize];
 			_position = -1;
-        }
+		}
 
 		public T Push(T item)
 		{
@@ -36,7 +37,7 @@ namespace Wheel
 			}
 			if (_position + 1 < _items.Length)
 			{
-                _items[++_position] = item;
+				_items[++_position] = item;
 			}
 			return item;
 		}
@@ -61,12 +62,12 @@ namespace Wheel
 		{
 			int newPosition = _position;
 			newPosition += positions;
-			while(newPosition > _position)
+			while (newPosition > _position)
 			{
 				newPosition -= _position;
 				newPosition--;
 			}
-			if(newPosition < _position)
+			if (newPosition < _position)
 			{
 				T[] leftArray = new T[newPosition + 1];
 				Array.Copy(_items, leftArray, newPosition + 1);
