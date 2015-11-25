@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Wheel
 {
-    public class Wheel<T> : IEnumerable<T>, IEnumerable, IReadOnlyCollection<T>
+    public class Wheel<T> : IEnumerable
 	{
 		public int Count {
 			get
@@ -81,12 +81,7 @@ namespace Wheel
 
 		public IEnumerator GetEnumerator()
 		{
-			return _items.GetEnumerator();
-		}
-		
-		IEnumerator<T> IEnumerable<T>.GetEnumerator()
-		{
-			for(int i = 0; i <= _position; i++)
+			for (int i = 0; i <= _position; i++)
 			{
 				yield return _items[i];
 			}
